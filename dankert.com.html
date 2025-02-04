@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru" id="main-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANKERT | Digital Universe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --main-bg: #0a0a0a;
+            --accent: #ff4444;
+            --text: #e0e0e0;
+            --card-bg: rgba(30,30,30,0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)),
+                        url(https://avatars.mds.yandex.net/i?id=aa479812a9b28fec258c7cadcd823208_l-9145889-images-thumbs&n=13) center/cover fixed;
+            color: var(--text);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Геометрические узоры */
+        .pattern {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.05;
+            background-image: 
+                linear-gradient(45deg, #fff 10%, transparent 10%),
+                linear-gradient(-45deg, #fff 10%, transparent 10%);
+            background-size: 20px 20px;
+            animation: patternMove 50s linear infinite;
+            z-index: 0;
+        }
+
+        /* Анимация сакуры */
+        .sakura {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #ff69b4;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fall linear infinite;
+            filter: blur(1px);
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(40,40,40,0.9);
+            border: 1px solid var(--accent);
+            color: var(--text);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            padding: 120px 0 80px;
+            opacity: 0;
+            animation: fadeIn 1s 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.8s forwards;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @keyframes cardAppear {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .social-link {
+            background: rgba(50,50,50,0.7);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .social-link a {
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.95em;
+            z-index: 1;
+            position: relative;
+        }
+
+        .social-link i {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            background: rgba(60,60,60,0.7);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--text);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button[type="submit"] {
+            background: var(--accent);
+            color: var(--text);
+            padding: 14px 45px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .social-links { grid-template-columns: 1fr 1fr; }
+            .card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern"></div>
+    <div id="sakura-container"></div>
+    <button class="lang-switch" onclick="toggleLanguage()">EN/RU</button>
+
+    <div class="container">
+        <header>
+            <h1 class="main-title">Digital Visionary</h1>
+            <p class="subtitle">Creating New Realities</p>
+        </header>
+
+        <div class="card">
+            <h2 class="social-title">Социальные сети</h2>
+            <div class="social-links">
+                <div class="social-link">
+                    <a href="https://t.me/dankert" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        <span class="label">Telegram</span>
+                    </a>
+                </div>
+                <div class="social-link">
+                    <a href="https://instagram.com/_dan_kert_" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                        <span class="label">Instagram</span>
+                    </a>
+                </div>
+                <div class="social-link">
+                    <a href="https://tiktok.com/@Dan_kert" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                        <span class="label">TikTok</span>
+                    </a>
+                </div>
+                <div class="social-link">
+                    <a href="https://vk.com/dan_kert" target="_blank">
+                        <i class="fab fa-vk"></i>
+                        <span class="label">VK</span>
+                    </a>
+                </div>
+                <div class="social-link">
+                    <a href="https://steamcommunity.com/id/dan_kert" target="_blank">
+                        <i class="fab fa-steam"></i>
+                        <span class="label">Steam</span>
+                    </a>
+                </div>
+                <div class="social-link">
+                    <a href="https://www.epicgames.com/account" target="_blank">
+                        <i class="fas fa-gamepad"></i>
+                        <span class="label">Epic Games</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="contact-title">Связь</h2>
+            <form class="contact-form" action="https://t.me/Dan_kert" method="POST">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Ваш Email" required>
+                <textarea name="message" rows="5" placeholder="Ваше сообщение..." required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Локализация
+        const translations = {
+            'ru': {
+                'mainTitle': 'Цифровой Визионер',
+                'subtitle': 'Создавая Новые Реальности',
+                'socialTitle': 'Социальные сети',
+                'contactTitle': 'Связь',
+                'placeholderName': 'Ваше имя',
+                'placeholderEmail': 'Ваш Email',
+                'placeholderMessage': 'Ваше сообщение...',
+                'submit': 'Отправить'
+            },
+            'en': {
+                'mainTitle': 'Digital Visionary',
+                'subtitle': 'Creating New Realities',
+                'socialTitle': 'Social Networks',
+                'contactTitle': 'Contact',
+                'placeholderName': 'Your Name',
+                'placeholderEmail': 'Your Email',
+                'placeholderMessage': 'Your Message...',
+                'submit': 'Send'
+            }
+        };
+
+        let currentLang = 'ru';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ru' : 'en';
+            document.getElementById('main-html').lang = currentLang;
+            updateTexts();
+        }
+
+        function updateTexts() {
+            const t = translations[currentLang];
+            document.querySelector('.main-title').textContent = t.mainTitle;
+            document.querySelector('.subtitle').textContent = t.subtitle;
+            document.querySelector('.social-title').textContent = t.socialTitle;
+            document.querySelector('.contact-title').textContent = t.contactTitle;
+            document.querySelector('[name="name"]').placeholder = t.placeholderName;
+            document.querySelector('[name="email"]').placeholder = t.placeholderEmail;
+            document.querySelector('[name="message"]').placeholder = t.placeholderMessage;
+            document.querySelector('button[type="submit"]').textContent = t.submit;
+        }
+
+        // Генератор сакуры
+        function createSakura() {
+            const container = document.getElementById('sakura-container');
+            for(let i = 0; i < 40; i++) {
+                const sakura = document.createElement('div');
+                sakura.className = 'sakura';
+                sakura.style.left = Math.random() * 100 + '%';
+                sakura.style.animationDuration = Math.random() * 5 + 8 + 's';
+                sakura.style.animationDelay = Math.random() * 5 + 's';
+                sakura.style.opacity = Math.random() * 0.5 + 0.3;
+                container.appendChild(sakura);
+            }
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            createSakura();
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>
