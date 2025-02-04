@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giorno Giovanna | Golden Wind</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #petals-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .avatar {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 4px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .social-link i {
+            margin-right: 10px;
+            font-size: 1.2em;
+            color: #ffd700;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            margin-top: 3rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="petals-canvas"></canvas>
+    
+    <div class="container">
+        <header class="header">
+            <img src="https://i.imgur.com/3q7R7O8.png" alt="Giorno Giovanna" class="avatar">
+            <h1>Giorno Giovanna</h1>
+            <p>«У меня есть мечта!»</p>
+            
+            <div class="social-links">
+                <a href="https://t.me/dan_kert" class="social-link" target="_blank">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </a>
+                <a href="https://instagram.com/_dan_kert_" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://tiktok.com/@dan_kert" class="social-link" target="_blank">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+                <a href="https://youtube.com/@dan_kert" class="social-link" target="_blank">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div>
+        </header>
+
+        <footer>
+            <p>© 2024 Dan Kert. Golden Experience</p>
+        </footer>
+    </div>
+
+    <script>
+        // Анимация лепестков сакуры
+        const canvas = document.getElementById('petals-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 7 + 3;
+                this.speedX = Math.random() * 3 - 1.5;
+                this.speedY = Math.random() * 2 + 1;
+                this.angle = 0;
+                this.spin = Math.random() * 0.2 - 0.1;
+                this.opacity = Math.random() * 0.5 + 0.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.angle += this.spin;
+
+                if (this.y > canvas.height) {
+                    this.y = 0;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(255, 183, 197, ${this.opacity})`;
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(-5, -10, 5, -10, 0, 0);
+                ctx.bezierCurveTo(5, 10, -5, 10, 0, 0);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = Array(100).fill().map(() => new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+    </script>
+    <script src="https://kit.fontawesome.com/ВАШ_KIT_ID.js" crossorigin="anonymous"></script>
+</body>
+</html>
