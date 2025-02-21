@@ -1,200 +1,171 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giorno Giovanna | Golden Wind</title>
+    <title>Dan Kert | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --main-color: #4a90e2; /* Синий акцент */
+            --bg-color: #1a1a1a; /* Тёмный фон */
+            --text-color: #e0e0e0;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
-            transition: all 0.3s ease;
         }
 
         body {
-            background: #1a1a1a;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        #petals-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 3rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .avatar {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            border: 4px solid #ffd700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .social-links {
+            background: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Основной контент */
+        .main-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* GIF-контейнер */
+        .gif-container {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            border: 2px solid var(--main-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Кнопки перехода */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
         }
 
         .social-link {
-            display: inline-flex;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 12px 25px;
-            border-radius: 30px;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(74, 144, 226, 0.1);
+            border: 1px solid var(--main-color);
+            border-radius: 10px;
+            color: var(--main-color);
             text-decoration: none;
-            color: white;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
         }
 
         .social-link i {
-            margin-right: 10px;
-            font-size: 1.2em;
-            color: #ffd700;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .social-link span {
+            font-size: 0.9rem;
         }
 
         .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            background: rgba(74, 144, 226, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-            margin-top: 3rem;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+        /* Анимации */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .gif-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .social-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <canvas id="petals-canvas"></canvas>
-    
-    <div class="container">
-        <header class="header">
-            <img src="https://i.imgur.com/3q7R7O8.png" alt="Giorno Giovanna" class="avatar">
-            <h1>Giorno Giovanna</h1>
-            <p>«У меня есть мечта!»</p>
-            
-            <div class="social-links">
-                <a href="https://t.me/dan_kert" class="social-link" target="_blank">
-                    <i class="fab fa-telegram-plane"></i> Telegram
-                </a>
-                <a href="https://instagram.com/_dan_kert_" class="social-link" target="_blank">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="https://tiktok.com/@dan_kert" class="social-link" target="_blank">
-                    <i class="fab fa-tiktok"></i> TikTok
-                </a>
-                <a href="https://youtube.com/@dan_kert" class="social-link" target="_blank">
-                    <i class="fab fa-youtube"></i> YouTube
-                </a>
-            </div>
-        </header>
+    <!-- Основной контент -->
+    <div class="main-content">
+        <h1>Dan Kert</h1>
+        <p>Creative Content Creator</p>
+        <div class="gif-container">
+            <img src="https://example.com/your-animation.gif" alt="Animated GIF">
+        </div>
 
-        <footer>
-            <p>© 2024 Dan Kert. Golden Experience</p>
-        </footer>
+        <!-- Кнопки перехода -->
+        <div class="social-links">
+            <a href="https://t.me/dankert" target="_blank" class="social-link">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+            <a href="https://instagram.com/_dan_kert_" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://tiktok.com/@dan_kert" target="_blank" class="social-link">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://pinterest.com/dankert26" target="_blank" class="social-link">
+                <i class="fab fa-pinterest"></i>
+                <span>Pinterest</span>
+            </a>
+            <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" target="_blank" class="social-link">
+                <i class="fab fa-reddit"></i>
+                <span>Reddit</span>
+            </a>
+            <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" target="_blank" class="social-link">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
+            </a>
+        </div>
     </div>
 
+    <!-- Скрипты -->
     <script>
-        // Анимация лепестков сакуры
-        const canvas = document.getElementById('petals-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 7 + 3;
-                this.speedX = Math.random() * 3 - 1.5;
-                this.speedY = Math.random() * 2 + 1;
-                this.angle = 0;
-                this.spin = Math.random() * 0.2 - 0.1;
-                this.opacity = Math.random() * 0.5 + 0.5;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                this.angle += this.spin;
-
-                if (this.y > canvas.height) {
-                    this.y = 0;
-                    this.x = Math.random() * canvas.width;
-                }
-            }
-
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.angle);
-                ctx.beginPath();
-                ctx.fillStyle = `rgba(255, 183, 197, ${this.opacity})`;
-                ctx.moveTo(0, 0);
-                ctx.bezierCurveTo(-5, -10, 5, -10, 0, 0);
-                ctx.bezierCurveTo(5, 10, -5, 10, 0, 0);
-                ctx.fill();
-                ctx.restore();
-            }
-        }
-
-        function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            particles = Array(100).fill().map(() => new Particle());
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', init);
-        init();
-        animate();
+        // Анимация появления контента
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.querySelector('.main-content');
+            content.style.opacity = 1;
+        });
     </script>
-    <script src="https://kit.fontawesome.com/ВАШ_KIT_ID.js" crossorigin="anonymous"></script>
 </body>
 </html>
