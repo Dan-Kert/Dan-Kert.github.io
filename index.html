@@ -61,6 +61,16 @@
             object-fit: cover;
         }
 
+        h1 a {
+            text-decoration: none;
+            color: var(--main-color);
+            transition: color 0.3s ease;
+        }
+
+        h1 a:hover {
+            color: #fff;
+        }
+
         /* Стили для социальных кнопок */
         .social-links {
             display: grid;
@@ -89,6 +99,28 @@
             box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
         }
 
+        /* Кнопка для Gmail */
+        .email-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--main-color);
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .email-button:hover {
+            background: #357ABD;
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
             .profile-image {
                 width: 200px;
@@ -99,7 +131,7 @@
 </head>
 <body>
     <div class="main-content">
-        <h1>Dan Kert</h1>
+        <h1><a href="https://t.me/dankert" target="_blank">Dan Kert</a></h1>
         <p>Creative Content Creator</p>
         
         <div class="profile-image">
@@ -120,8 +152,7 @@
                 <span>TikTok</span>
             </a>
             <a href="https://pinterest.com/dankert26" target="_blank" class="social-link">
-
-<i class="fab fa-pinterest"></i>
+                <i class="fab fa-pinterest"></i>
                 <span>Pinterest</span>
             </a>
             <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" target="_blank" class="social-link">
@@ -132,7 +163,27 @@
                 <i class="fab fa-spotify"></i>
                 <span>Spotify</span>
             </a>
+            <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" target="_blank" class="social-link">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://x.com/DanKert26?t=9aWVnzUbTKfMW9OlLa8Knw&s=09" target="_blank" class="social-link">
+                <i class="fab fa-x-twitter"></i>
+                <span>X (Twitter)</span>
+            </a>
+            <a href="https://twitch.tv/dan_kert_" target="_blank" class="social-link">
+                <i class="fab fa-twitch"></i>
+                <span>Twitch</span>
+            </a>
+            <a href="https://vk.com/dan_kert" target="_blank" class="social-link">
+                <i class="fab fa-vk"></i>
+                <span>VK</span>
+            </a>
         </div>
     </div>
+
+    <a href="mailto:dankert@gmail.com?subject=Hello Dan!" class="email-button">
+        <i class="fas fa-envelope"></i> Email Me
+    </a>
 </body>
 </html>
