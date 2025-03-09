@@ -20,13 +20,14 @@
         }
 
         .container {
-            background-color: rgba(50, 50, 50, 0.7);
+            background-color: rgba(50, 50, 50, 0.8);
             padding: 40px;
             border-radius: 15px;
             width: 80%;
             max-width: 600px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
             border: 2px solid #00b0ff;
+            text-align: center;
         }
 
         .avatar {
@@ -57,7 +58,7 @@
 
         .link {
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.5em;
             color: white;
             padding: 12px 20px;
             background-color: transparent;
@@ -81,8 +82,14 @@
         }
 
         .link img {
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .link:hover img {
+            filter: grayscale(0%);
         }
 
         @keyframes fadeIn {
@@ -104,28 +111,28 @@
         <h1>DanKert</h1>
         <div class="links">
             <a href="https://tiktok.com/@dan_kert" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/TikTok_logo_2021.svg" alt="TikTok Logo"> TikTok @dan_kert
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/TikTok_logo_2021.svg" alt="TikTok Logo"> TikTok
             </a>
             <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Reddit_Logo_2022.png" alt="Reddit Logo"> Reddit @Dan_Kert
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Reddit_Logo_2022.png" alt="Reddit Logo"> Reddit
             </a>
             <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" class="link" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Spotify_Logo_2015.png" alt="Spotify Logo"> Spotify
             </a>
             <a href="https://instagram.com/_dan_kert_" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo"> Instagram @_dan_kert_
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo"> Instagram
             </a>
             <a href="https://pinterest.com/dankert26" class="link" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Pinterest-logo.png" alt="Pinterest Logo"> Pinterest
             </a>
             <a href="https://t.me/dankert" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Telegram_2019_logo.svg" alt="Telegram Logo"> Telegram @dankert
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Telegram_2019_logo.svg" alt="Telegram Logo"> Telegram
             </a>
             <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo"> YouTube @dan_kert
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo"> YouTube
             </a>
             <a href="https://www.twitch.tv/dan_kert_" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Twitch_logo_2019.svg" alt="Twitch Logo"> Twitch @dan_kert_
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Twitch_logo_2019.svg" alt="Twitch Logo"> Twitch
             </a>
         </div>
     </div>
