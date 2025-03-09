@@ -14,35 +14,55 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #121212; /* Темный фон */
+            background-image: url('https://i.ibb.co/m5QbJ4fG/image.png'); /* Фон */
+            background-size: cover;
+            background-position: center;
             color: #f1f1f1; /* Светлый текст */
             line-height: 1.6;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            flex-direction: column;
         }
 
         .bio-container {
             width: 100%;
             max-width: 1000px;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 10px;
+            padding: 40px;
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Анимация появления */
+        .bio-container {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Шапка */
         header h1 {
-            text-align: center;
             font-size: 36px;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         header p {
-            text-align: center;
             font-size: 18px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         /* Описание */
@@ -55,56 +75,112 @@
             margin-bottom: 15px;
         }
 
+        .description p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
         /* Социальные сети */
         .social-links ul {
             list-style: none;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             margin-top: 20px;
         }
 
         .social-links ul li {
-            margin: 0 10px;
+            margin: 0 20px;
         }
 
         .social-links ul li a {
             text-decoration: none;
             color: #f1f1f1;
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
-            transition: color 0.3s ease;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-links ul li a:hover {
-            color: #ff4081; /* Цвет при наведении */
+            color: #ff4081;
+            transform: scale(1.1);
         }
 
         .social-links ul li a img {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             margin-right: 10px;
+            transition: filter 0.3s ease;
         }
 
-        /* Подвал */
+        .social-links ul li a:hover img {
+            filter: invert(100%);
+        }
+
+        /* Кнопки с анимацией */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4081;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #d5006e;
+            transform: translateY(-5px);
+        }
+
+        /* Фото и аватар */
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 5px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .photos {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .photo {
+            width: 45%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         footer {
-            text-align: center;
             margin-top: 40px;
             font-size: 14px;
             color: #a1a1a1;
         }
 
-        /* Фон */
-        body {
-            background-image: url('background.jpg'); /* Задний фон */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Монохромные иконки */
-        img {
-            filter: grayscale(100%); /* Монохром */
-        }
     </style>
 </head>
 <body>
@@ -112,24 +188,39 @@
         <!-- Шапка -->
         <header>
             <h1>Привет, я DanKert!</h1>
-            <p>Это моя личная страница. Здесь вы можете узнать обо мне и перейти на мои соцсети.</p>
+            <p>Добро пожаловать на мою личную страницу. Я разработчик, делаю крутые проекты, и здесь я делюсь своим опытом и работами.</p>
         </header>
 
-        <!-- Основной контент -->
+        <!-- Аватар -->
+        <div class="avatar">
+            <img src="https://i.ibb.co/20DddgZv/image.jpg" alt="DanKert" class="profile-image">
+        </div>
+
+        <!-- Описание -->
         <main>
-            <section>
+            <section class="description">
                 <h2>Обо мне</h2>
-                <p>Я разработчик, увлекаюсь технологиями и дизайном. Создаю проекты на Unity, а также занимаюсь разработкой ботов для Telegram и веб-сайтов.</p>
+                <p>Я занимаюсь разработкой веб-приложений, ботов для Telegram и 3D-игр. В свободное время увлекаюсь музыкой и рисованием. Создаю крутые проекты и решаю задачи в самых разных областях технологий.</p>
             </section>
 
-            <!-- Ссылки на социальные сети -->
+            <!-- Фото -->
+            <div class="photos">
+                <div class="photo">
+                    <img src="https://via.placeholder.com/400x300" alt="Фото 1">
+                </div>
+                <div class="photo">
+                    <img src="https://via.placeholder.com/400x300" alt="Фото 2">
+                </div>
+            </div>
+
+            <!-- Социальные сети -->
             <section class="social-links">
                 <h2>Мои соцсети</h2>
                 <ul>
-                    <li><a href="https://github.com/DanKert" target="_blank"><img src="icon-github.svg" alt="GitHub">GitHub</a></li>
-                    <li><a href="https://www.instagram.com/DanKert" target="_blank"><img src="icon-instagram.svg" alt="Instagram">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/in/DanKert" target="_blank"><img src="icon-linkedin.svg" alt="LinkedIn">LinkedIn</a></li>
-                    <li><a href="https://twitter.com/DanKert" target="_blank"><img src="icon-twitter.svg" alt="Twitter">Twitter</a></li>
+                    <li><a href="https://github.com/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Octicons-mark-github.svg" alt="GitHub">GitHub</a></li>
+                    <li><a href="https://www.instagram.com/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/LinkedIn_icon.svg" alt="LinkedIn">LinkedIn</a></li>
+                    <li><a href="https://twitter.com/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">Twitter</a></li>
                 </ul>
             </section>
         </main>
