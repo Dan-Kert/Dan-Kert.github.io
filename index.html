@@ -1,141 +1,138 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DanKert</title>
+    <title>Dan Kert | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --main-color: #4a90e2;
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: white;
-            text-align: center;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            background: 
+                linear-gradient(rgba(0,0,0,0.85), 
+                rgba(0,0,0,0.85)),
+                url('https://i.ibb.co/m5QbJ4fG/image.png') center/cover fixed;
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            position: relative;
             overflow: hidden;
         }
 
-        .container {
-            background-color: rgba(50, 50, 50, 0.8);
+        .main-content {
+            background: rgba(26, 26, 26, 0.95);
             padding: 40px;
             border-radius: 15px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-            border: 2px solid #00b0ff;
+            box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
+            max-width: 800px;
             text-align: center;
+            border: 1px solid var(--main-color);
+            backdrop-filter: blur(5px);
+            margin: 20px;
         }
 
-        .avatar {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 30px;
+        .profile-image {
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            background-image: url('https://i.ibb.co/m5QbJ4fG/image.png');
-            background-size: cover;
-            background-position: center;
-            animation: fadeIn 1s ease-out;
-            margin-top: -30px;
+            border: 3px solid var(--main-color);
+            margin: 20px auto;
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        h1 {
-            font-size: 2.5em;
-            color: #00b0ff;
-            margin-bottom: 30px;
-            animation: slideIn 1s ease-out;
+        .profile-image:hover {
+            transform: scale(1.05);
         }
 
-        .links {
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Стили для социальных кнопок */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .link {
-            text-decoration: none;
-            font-size: 1.5em;
-            color: white;
-            padding: 12px 20px;
-            background-color: transparent;
-            border: 2px solid #00b0ff;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            padding: 15px;
+            background: rgba(74, 144, 226, 0.1);
+            border: 1px solid var(--main-color);
+            border-radius: 10px;
+            color: var(--main-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .link:hover {
-            background-color: #00b0ff;
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(0, 176, 255, 0.7);
+        .social-link:hover {
+            background: rgba(74, 144, 226, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
         }
 
-        .link:active {
-            transform: scale(1);
+        @media (max-width: 768px) {
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
         }
-
-        .link img {
-            width: 30px;
-            height: 30px;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-
-        .link:hover img {
-            filter: grayscale(0%);
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateY(-50px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
     </style>
 </head>
 <body>
+    <div class="main-content">
+        <h1>Dan Kert</h1>
+        <p>Creative Content Creator</p>
+        
+        <div class="profile-image">
+            <img src="https://i.ibb.co/20DddgZv/image.jpg" alt="Profile Photo">
+        </div>
 
-    <div class="container">
-        <div class="avatar"></div>
-        <h1>DanKert</h1>
-        <div class="links">
-            <a href="https://tiktok.com/@dan_kert" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/TikTok_logo_2021.svg" alt="TikTok Logo"> TikTok
+        <div class="social-links">
+            <a href="https://t.me/dankert" target="_blank" class="social-link">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
             </a>
-            <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Reddit_Logo_2022.png" alt="Reddit Logo"> Reddit
+            <a href="https://instagram.com/_dan_kert_" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
             </a>
-            <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Spotify_Logo_2015.png" alt="Spotify Logo"> Spotify
+            <a href="https://tiktok.com/@dan_kert" target="_blank" class="social-link">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
             </a>
-            <a href="https://instagram.com/_dan_kert_" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo"> Instagram
+            <a href="https://pinterest.com/dankert26" target="_blank" class="social-link">
+
+<i class="fab fa-pinterest"></i>
+                <span>Pinterest</span>
             </a>
-            <a href="https://pinterest.com/dankert26" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Pinterest-logo.png" alt="Pinterest Logo"> Pinterest
+            <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" target="_blank" class="social-link">
+                <i class="fab fa-reddit"></i>
+                <span>Reddit</span>
             </a>
-            <a href="https://t.me/dankert" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Telegram_2019_logo.svg" alt="Telegram Logo"> Telegram
-            </a>
-            <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo"> YouTube
-            </a>
-            <a href="https://www.twitch.tv/dan_kert_" class="link" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Twitch_logo_2019.svg" alt="Twitch Logo"> Twitch
+            <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" target="_blank" class="social-link">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
             </a>
         </div>
     </div>
-
 </body>
 </html>
