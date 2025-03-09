@@ -6,58 +6,106 @@
     <title>Dan Kert | Bio</title>
     <style>
         body {
-            background-color: #000;
+            background-color: #121212;
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
+
         .container {
             margin-top: 50px;
             opacity: 0;
-            animation: fadeIn 1.5s forwards;
+            animation: fadeIn 2s forwards;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        h1, p {
+            opacity: 0;
+            animation: fadeInText 2s forwards;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         video {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
+
         .links {
-            margin-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
+
         .links a {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
             color: #fff;
             text-decoration: none;
             font-size: 18px;
             margin: 10px;
-            padding: 10px;
-            border: 1px solid #fff;
-            border-radius: 5px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            width: 180px;
             transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
+
         .links a:hover {
             background-color: #fff;
             color: #000;
+            transform: scale(1.1);
         }
+
+        .links img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
         .lang-switch {
-            margin-top: 20px;
+            margin-top: 30px;
         }
+
         .lang-switch button {
             background: none;
             border: 1px solid #fff;
             color: #fff;
-            padding: 5px 10px;
+            padding: 10px 20px;
             margin: 5px;
             cursor: pointer;
+            font-size: 16px;
             transition: 0.3s;
+            border-radius: 5px;
         }
+
         .lang-switch button:hover {
             background-color: #fff;
             color: #000;
@@ -77,14 +125,30 @@
 
     <!-- Ссылки -->
     <div class="links">
-        <a href="https://tiktok.com/@dan_kert" target="_blank">TikTok</a>
-        <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" target="_blank">Reddit</a>
-        <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" target="_blank">Spotify</a>
-        <a href="https://instagram.com/_dan_kert_" target="_blank">Instagram</a>
-        <a href="https://pinterest.com/dankert26" target="_blank">Pinterest</a>
-        <a href="https://t.me/dankert" target="_blank">Telegram</a>
-        <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" target="_blank">YouTube</a>
-        <a href="https://www.twitch.tv/dan_kert_" target="_blank">Twitch</a>
+        <a href="https://tiktok.com/@dan_kert" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo_2021.svg" alt="TikTok"> TikTok
+        </a>
+        <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Reddit_Icon_2022.png" alt="Reddit"> Reddit
+        </a>
+        <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Spotify_logo_with_text.svg" alt="Spotify"> Spotify
+        </a>
+        <a href="https://instagram.com/_dan_kert_" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram"> Instagram
+        </a>
+        <a href="https://pinterest.com/dankert26" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Pinterest_logo_2017.svg" alt="Pinterest"> Pinterest
+        </a>
+        <a href="https://t.me/dankert" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Telegram_2019_logo.svg" alt="Telegram"> Telegram
+        </a>
+        <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"> YouTube
+        </a>
+        <a href="https://www.twitch.tv/dan_kert_" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Twitch_Logo_2019.svg" alt="Twitch"> Twitch
+        </a>
     </div>
 
     <!-- Переключение языка -->
