@@ -3,172 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Kert | Bio</title>
+    <title>DanKert | Био</title>
     <style>
-        body {
-            background-color: #121212;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
+        /* Основные стили для темной темы */
+        * {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
-        .container {
-            margin-top: 50px;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1, p {
-            opacity: 0;
-            animation: fadeInText 2s forwards;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin: 10px;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-
-        @keyframes fadeInText {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        video {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 30px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        }
-
-        .links {
-            margin-top: 30px;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Темный фон */
+            color: #f1f1f1; /* Светлый текст */
+            line-height: 1.6;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .links a {
+        .bio-container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Шапка */
+        header h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        /* Описание */
+        main section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* Социальные сети */
+        .social-links ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .social-links ul li {
+            margin: 0 10px;
+        }
+
+        .social-links ul li a {
+            text-decoration: none;
+            color: #f1f1f1;
+            font-size: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 10px;
-            padding: 12px 20px;
-            border-radius: 50px;
-            width: 180px;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            transition: color 0.3s ease;
         }
 
-        .links a:hover {
-            background-color: #fff;
-            color: #000;
-            transform: scale(1.1);
+        .social-links ul li a:hover {
+            color: #ff4081; /* Цвет при наведении */
         }
 
-        .links img {
+        .social-links ul li a img {
             width: 24px;
             height: 24px;
             margin-right: 10px;
         }
 
-        .lang-switch {
-            margin-top: 30px;
+        /* Подвал */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #a1a1a1;
         }
 
-        .lang-switch button {
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-            border-radius: 5px;
+        /* Фон */
+        body {
+            background-image: url('background.jpg'); /* Задний фон */
+            background-size: cover;
+            background-position: center;
         }
 
-        .lang-switch button:hover {
-            background-color: #fff;
-            color: #000;
+        /* Монохромные иконки */
+        img {
+            filter: grayscale(100%); /* Монохром */
         }
     </style>
 </head>
 <body>
+    <div class="bio-container">
+        <!-- Шапка -->
+        <header>
+            <h1>Привет, я DanKert!</h1>
+            <p>Это моя личная страница. Здесь вы можете узнать обо мне и перейти на мои соцсети.</p>
+        </header>
 
-<div class="container">
-    <!-- Видео-аватарка -->
-    <video autoplay loop muted playsinline>
-        <source src="https://drive.google.com/uc?export=download&id=1RN-ClT3C_NpXIyzbstIkH6g5rZHXFzWl" type="video/mp4">
-    </video>
+        <!-- Основной контент -->
+        <main>
+            <section>
+                <h2>Обо мне</h2>
+                <p>Я разработчик, увлекаюсь технологиями и дизайном. Создаю проекты на Unity, а также занимаюсь разработкой ботов для Telegram и веб-сайтов.</p>
+            </section>
 
-    <h1 id="bio-title">Привет, я Dan Kert!</h1>
-    <p id="bio-text">Добро пожаловать! Здесь все мои соцсети.</p>
+            <!-- Ссылки на социальные сети -->
+            <section class="social-links">
+                <h2>Мои соцсети</h2>
+                <ul>
+                    <li><a href="https://github.com/DanKert" target="_blank"><img src="icon-github.svg" alt="GitHub">GitHub</a></li>
+                    <li><a href="https://www.instagram.com/DanKert" target="_blank"><img src="icon-instagram.svg" alt="Instagram">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/in/DanKert" target="_blank"><img src="icon-linkedin.svg" alt="LinkedIn">LinkedIn</a></li>
+                    <li><a href="https://twitter.com/DanKert" target="_blank"><img src="icon-twitter.svg" alt="Twitter">Twitter</a></li>
+                </ul>
+            </section>
+        </main>
 
-    <!-- Ссылки -->
-    <div class="links">
-        <a href="https://tiktok.com/@dan_kert" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo_2021.svg" alt="TikTok"> TikTok
-        </a>
-        <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Reddit_Icon_2022.png" alt="Reddit"> Reddit
-        </a>
-        <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Spotify_logo_with_text.svg" alt="Spotify"> Spotify
-        </a>
-        <a href="https://instagram.com/_dan_kert_" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram"> Instagram
-        </a>
-        <a href="https://pinterest.com/dankert26" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Pinterest_logo_2017.svg" alt="Pinterest"> Pinterest
-        </a>
-        <a href="https://t.me/dankert" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Telegram_2019_logo.svg" alt="Telegram"> Telegram
-        </a>
-        <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"> YouTube
-        </a>
-        <a href="https://www.twitch.tv/dan_kert_" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Twitch_Logo_2019.svg" alt="Twitch"> Twitch
-        </a>
+        <!-- Подвал -->
+        <footer>
+            <p>© 2025 DanKert</p>
+        </footer>
     </div>
-
-    <!-- Переключение языка -->
-    <div class="lang-switch">
-        <button onclick="switchLang('ru')">Русский</button>
-        <button onclick="switchLang('en')">English</button>
-    </div>
-</div>
-
-<script>
-    function switchLang(lang) {
-        if (lang === 'ru') {
-            document.getElementById("bio-title").innerText = "Привет, я Dan Kert!";
-            document.getElementById("bio-text").innerText = "Добро пожаловать! Здесь все мои соцсети.";
-        } else {
-            document.getElementById("bio-title").innerText = "Hello, I'm Dan Kert!";
-            document.getElementById("bio-text").innerText = "Welcome! Here are all my social media links.";
-        }
-    }
-</script>
-
 </body>
 </html>
