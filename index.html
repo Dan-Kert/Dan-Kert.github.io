@@ -3,211 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DanKert | Био</title>
+    <title>DanKert</title>
     <style>
-        /* Сброс стилей */
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Общие стили */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('https://i.ibb.co/m5QbJ4fG/image.png') no-repeat center center fixed;
+            font-family: Arial, sans-serif;
+            background: url('https://i.ibb.co/20DddgZv/image.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: #f1f1f1;
-            line-height: 1.6;
+            color: white;
+            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
+            height: 100vh;
         }
 
-        /* Основной контейнер */
-        .bio-container {
-            width: 100%;
-            max-width: 900px;
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 40px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
         }
 
-        /* Анимация появления */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Заголовки */
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #fff;
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
-        }
-
-        h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        /* Описание */
-        .description p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Фото профиля */
         .avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            overflow: hidden;
+            width: 150px;
+            height: 150px;
             margin-bottom: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-            animation: avatarZoom 1s ease-out forwards;
+            border-radius: 50%;
+            background-image: url('https://i.ibb.co/m5QbJ4fG/image.png');
+            background-size: cover;
+            background-position: center;
+            animation: fadeIn 1s ease-out;
         }
 
-        @keyframes avatarZoom {
-            0% {
-                transform: scale(0.7);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+        h1 {
+            font-size: 2.5em;
+            color: #00b0ff;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
         }
 
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Социальные ссылки */
-        .social-links ul {
-            list-style: none;
+        .links {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .social-links ul li {
-            transition: transform 0.3s, filter 0.3s;
-        }
-
-        .social-links ul li a {
+        .link {
             text-decoration: none;
-            color: #fff;
-            font-size: 24px;
-            display: inline-block;
-            position: relative;
-            padding: 10px;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .social-links ul li a:hover {
-            color: #ff4081;
-            transform: scale(1.1);
-        }
-
-        .social-links ul li a img {
-            width: 35px;
-            height: 35px;
-            transition: filter 0.3s ease;
-        }
-
-        .social-links ul li a:hover img {
-            filter: invert(100%);
-        }
-
-        /* Кнопка */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff4081;
-            color: #fff;
-            font-size: 18px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
+            font-size: 1.2em;
+            color: white;
+            padding: 12px 20px;
+            background-color: #00b0ff;
+            border-radius: 5px;
             transition: background-color 0.3s, transform 0.3s;
-            margin-top: 30px;
         }
 
-        .button:hover {
-            background-color: #d5006e;
+        .link:hover {
+            background-color: #0097cc;
             transform: scale(1.1);
         }
 
-        /* Подвал */
-        footer {
-            font-size: 14px;
-            color: #bbb;
-            margin-top: 50px;
-            opacity: 0;
-            animation: fadeIn 2s forwards 0.5s;
+        .link:active {
+            transform: scale(1);
         }
 
-        /* Подсветка подвала */
         @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
     </style>
 </head>
 <body>
 
-    <div class="bio-container">
-        <!-- Заголовок -->
-        <h1>Привет, я DanKert!</h1>
-        <h2>Разработчик. Музыкант. Творец.</h2>
-
-        <!-- Фото профиля -->
-        <div class="avatar">
-            <img src="https://i.ibb.co/20DddgZv/image.jpg" alt="DanKert">
+    <div class="container">
+        <div class="avatar"></div>
+        <h1>DanKert</h1>
+        <div class="links">
+            <a href="https://tiktok.com/@dan_kert" class="link" target="_blank">TikTok @dan_kert</a>
+            <a href="https://www.reddit.com/u/Dan_Kert/s/YUjaCek8I5" class="link" target="_blank">Reddit @Dan_Kert</a>
+            <a href="https://open.spotify.com/user/31mrtn5exfi3byj4bkgofk5zz22y?si=hhcuMvoRRJ-_ESRMy_Ss3w" class="link" target="_blank">Spotify</a>
+            <a href="https://instagram.com/_dan_kert_" class="link" target="_blank">Instagram @_dan_kert_</a>
+            <a href="https://pinterest.com/dankert26" class="link" target="_blank">Pinterest</a>
+            <a href="https://t.me/dankert" class="link" target="_blank">Telegram @dankert</a>
+            <a href="https://youtube.com/@dan_kert?si=EFOL4zoXo_fsFxfn" class="link" target="_blank">YouTube @dan_kert</a>
+            <a href="https://www.twitch.tv/dan_kert_" class="link" target="_blank">Twitch @dan_kert_</a>
         </div>
+    </div>
 
-        <!-- Описание -->
-        <div class="description">
-            <p>Я — разработчик и творческий человек. Мои проекты включают веб-приложения, ботов для Telegram и игры. Также увлекаюсь музыкой и креативным решением задач. Присоединяйся к моим соцсетям, чтобы не пропустить новые идеи и разработки!</p>
-        </div>
-
-        <!-- Социальные сети -->
-        <div class="social-links">
-            <ul>
-                <li><a href="https://github.com/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Octicons-mark-github.svg" alt="GitHub">GitHub</a></li>
-                <li><a href="https://www.instagram.com/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">Instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/LinkedIn_icon.svg" alt="LinkedIn">LinkedIn</a></li>
-                <li><a href="https://twitter.com/DanKert" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">Twitter</a></li>
-            </ul>
-        </div>
-
-        <!-- Кнопка -->
-        <a href="https://www.instagram.com/DanKert"
+</body>
+</html>
